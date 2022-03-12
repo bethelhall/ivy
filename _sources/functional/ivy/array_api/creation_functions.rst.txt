@@ -17,4 +17,5 @@ Creation functions
    creation_functions/ones_like.rst
    creation_functions/tril.rst
    creation_functions/empty.rst
+   creation_functions/asarray.rst
 
