@@ -13,4 +13,5 @@ Sorting functions
    :caption: Sorting functions
 
    sorting_functions/argsort.rst
+   sorting_functions/sort.rst
 

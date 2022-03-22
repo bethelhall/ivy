@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ivy.functional.ivy.array_api.sorting_functions &mdash; Ivy 1.0 documentation</title>
+  <title>sort &mdash; Ivy 1.0 documentation</title>
   
 
   
@@ -103,8 +103,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Functional</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../functional/backends.html">Backends</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../functional/ivy.html">Ivy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ivy.html">Ivy</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Stateful</span></p>
 <ul>
@@ -173,12 +173,14 @@
     
       <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>ivy.functional.ivy.array_api.sorting_functions</li>
+      <li>sort</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/functional/backends/mxnet/array_api/sorting_functions/sort.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -190,73 +192,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for ivy.functional.ivy.array_api.sorting_functions</h1><div class="highlight"><pre>
-<span></span><span class="c1"># global</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+  <div class="section" id="sort">
+<h1>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><strong>Supported Frameworks:</strong></div>
+</div>
+<p><a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../../../_images/jax_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../../../_images/tensorflow_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../../../_images/pytorch_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../../../_images/mxnet_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://numpy.org"><img alt="numpy_logo" src="../../../../../_images/numpy_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../../../_images/empty.png"><img alt="empty" src="../../../../../_images/empty.png" style="width: 4%;" /></a></p>
+</div>
 
-<span class="c1"># local</span>
-<span class="kn">import</span> <span class="nn">ivy</span>
-<span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="kn">import</span> <span class="n">current_framework</span> <span class="k">as</span> <span class="n">_cur_framework</span>
-
-
-<div class="viewcode-block" id="argsort"><a class="viewcode-back" href="../../../../../functional/ivy/array_api/sorting_functions/argsort.html#ivy.functional.ivy.array_api.sorting_functions.argsort">[docs]</a><span class="k">def</span> <span class="nf">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-            <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">stable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> \
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">   Returns the indices that sort an array ``x`` along a specified axis.</span>
-
-<span class="sd">   Parameters</span>
-<span class="sd">   ----------</span>
-<span class="sd">   x:</span>
-<span class="sd">       input array.</span>
-<span class="sd">   axis:</span>
-<span class="sd">       axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.</span>
-<span class="sd">   descending:</span>
-<span class="sd">       sort order. If ``True``, the returned indices sort ``x`` in descending order (by value). If ``False``, the returned indices sort ``x`` in ascending order (by value). Default: ``False``.</span>
-<span class="sd">   stable:</span>
-<span class="sd">       sort stability. If ``True``, the returned indices must maintain the relative order of ``x`` values which compare as equal. If ``False``, the returned indices may or may not maintain the relative order of ``x`` values which compare as equal (i.e., the relative order of ``x`` values which compare as equal is implementation-dependent). Default: ``True``.</span>
-
-<span class="sd">   Returns</span>
-<span class="sd">   -------</span>
-<span class="sd">   out:</span>
-<span class="sd">       an array of indices. The returned array must have the same shape as ``x``. The returned array must have the default array index data type.</span>
-<span class="sd">   &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">descending</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="sort"><a class="viewcode-back" href="../../../../../functional/ivy/array_api/sorting_functions/sort.html#ivy.functional.ivy.array_api.sorting_functions.sort">[docs]</a><span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-         <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-         <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-         <span class="n">stable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a sorted copy of an array</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">    ___________</span>
-<span class="sd">        x:</span>
-<span class="sd">            input array</span>
-
-<span class="sd">        axis:</span>
-<span class="sd">            axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.</span>
-
-<span class="sd">        descending:</span>
-<span class="sd">            direction: The direction in which to sort the values</span>
-
-<span class="sd">        stable:</span>
-<span class="sd">            sort stability. If ``True``,</span>
-<span class="sd">            the returned indices must maintain the relative order of ``x`` values which compare as equal.</span>
-<span class="sd">            If ``False``, the returned indices may or may not maintain the relative order of ``x`` values which compare as equal (i.e., the relative order of ``x`` values which compare as equal is implementation-dependent). Default: ``True``.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    _______</span>
-<span class="sd">        An array with the same dtype and shape as `values`, with the elements</span>
-<span class="sd">            sorted along the given `axis`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">descending</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span></div>
-</pre></div>
 
            </div>
            
