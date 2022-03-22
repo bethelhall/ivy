@@ -9,6 +9,7 @@ General
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: General
 
@@ -64,4 +65,6 @@ General
    general/cumprod.rst
    general/scatter_flat.rst
    general/scatter_nd.rst
+   general/gather.rst
+   general/gather_nd.rst
 

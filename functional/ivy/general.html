@@ -81,12 +81,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Guides</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../why_ivy.html">Why Ivy?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../using_ivy.html">Using Ivy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../training_a_network.html">Training a Network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to Ivy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Functional</span></p>
 <ul class="current">
@@ -150,6 +151,8 @@
 <li class="toctree-l2"><a class="reference internal" href="general/cumprod.html">cumprod</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/scatter_flat.html">scatter_flat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/scatter_nd.html">scatter_nd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/gather.html">gather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/gather_nd.html">gather_nd</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gradients.html">Gradients</a></li>
@@ -570,6 +573,43 @@ a key-value structure, and exposes public methods .keys(), .values() and items()
 </dd></dl>
 
 <dl class="py function">
+<dt id="ivy.functional.ivy.general.gather">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">gather</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">indices</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">axis</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">dev</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>ivy.Device<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#gather"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.general.gather" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather slices from params at axis according to indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>array</em>) – The array from which to gather values.</p></li>
+<li><p><strong>indices</strong> (<em>array</em>) – Index array.</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) – The axis from which to gather from. Default is -1.</p></li>
+<li><p><strong>dev</strong> (<em>ivy.Device</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New array with the values gathered at the specified indices along the specified axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy.functional.ivy.general.gather_nd">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">gather_nd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">indices</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">dev</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>ivy.Device<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#gather_nd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.general.gather_nd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather slices from params into a array with shape specified by indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>array</em>) – The array from which to gather values.</p></li>
+<li><p><strong>indices</strong> (<em>array</em>) – Index array.</p></li>
+<li><p><strong>dev</strong> (<em>ivy.Device</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New array of given shape, with the values gathered at the indices.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="ivy.functional.ivy.general.get_all_arrays_in_memory">
 <code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">get_all_arrays_in_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#get_all_arrays_in_memory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.general.get_all_arrays_in_memory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all arrays which are currently alive.</p>
@@ -975,61 +1015,6 @@ scatter into a zeros array.</p></li>
 </dd></dl>
 
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">General</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="general/get_referrers_recursive.html">get_referrers_recursive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/is_array.html">is_array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/copy_array.html">copy_array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/array_equal.html">array_equal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/arrays_equal.html">arrays_equal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/all_equal.html">all_equal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/to_numpy.html">to_numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/to_scalar.html">to_scalar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/to_list.html">to_list</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/clip_vector_norm.html">clip_vector_norm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/clip_matrix_norm.html">clip_matrix_norm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/floormod.html">floormod</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/unstack.html">unstack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/fourier_encode.html">fourier_encode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/value_is_nan.html">value_is_nan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/has_nans.html">has_nans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/exists.html">exists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/default.html">default</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/shape_to_tuple.html">shape_to_tuple</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/try_else_none.html">try_else_none</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/arg_names.html">arg_names</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/match_kwargs.html">match_kwargs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/cache_fn.html">cache_fn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/current_framework_str.html">current_framework_str</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/einops_rearrange.html">einops_rearrange</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/einops_reduce.html">einops_reduce</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/einops_repeat.html">einops_repeat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/get_min_denominator.html">get_min_denominator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/set_min_denominator.html">set_min_denominator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/get_min_base.html">get_min_base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/set_min_base.html">set_min_base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/stable_divide.html">stable_divide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/stable_pow.html">stable_pow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/get_all_arrays_in_memory.html">get_all_arrays_in_memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/num_arrays_in_memory.html">num_arrays_in_memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/print_all_arrays_in_memory.html">print_all_arrays_in_memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/set_queue_timeout.html">set_queue_timeout</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/queue_timeout.html">queue_timeout</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/tmp_dir.html">tmp_dir</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/set_tmp_dir.html">set_tmp_dir</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/container_types.html">container_types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/inplace_arrays_supported.html">inplace_arrays_supported</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/inplace_variables_supported.html">inplace_variables_supported</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/supports_inplace.html">supports_inplace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/assert_supports_inplace.html">assert_supports_inplace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/inplace_update.html">inplace_update</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/inplace_decrement.html">inplace_decrement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/inplace_increment.html">inplace_increment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/cumsum.html">cumsum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/cumprod.html">cumprod</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/scatter_flat.html">scatter_flat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/scatter_nd.html">scatter_nd</a></li>
-</ul>
 </div>
 </div>
 
