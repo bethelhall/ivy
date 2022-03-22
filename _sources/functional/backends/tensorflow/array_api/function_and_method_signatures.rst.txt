@@ -9,6 +9,7 @@ Function and method signatures
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Function and method signatures
 

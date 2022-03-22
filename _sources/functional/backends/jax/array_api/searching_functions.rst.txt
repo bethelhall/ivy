@@ -9,6 +9,7 @@ Searching functions
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Searching functions
 

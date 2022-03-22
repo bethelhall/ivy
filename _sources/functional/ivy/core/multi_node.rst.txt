@@ -9,6 +9,7 @@ Multi node
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Multi node
 

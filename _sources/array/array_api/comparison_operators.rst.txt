@@ -9,6 +9,7 @@ Comparison operators
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Comparison operators
 

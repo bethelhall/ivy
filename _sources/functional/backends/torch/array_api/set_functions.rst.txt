@@ -9,6 +9,7 @@ Set functions
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Set functions
 

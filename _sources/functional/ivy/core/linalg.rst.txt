@@ -9,6 +9,7 @@ Linalg
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Linalg
 

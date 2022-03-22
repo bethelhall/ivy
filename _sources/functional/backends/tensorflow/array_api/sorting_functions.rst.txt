@@ -9,6 +9,7 @@ Sorting functions
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Sorting functions
 

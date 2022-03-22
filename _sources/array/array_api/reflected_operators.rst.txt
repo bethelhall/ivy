@@ -9,6 +9,7 @@ Reflected operators
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Reflected operators
 

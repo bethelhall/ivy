@@ -9,6 +9,7 @@ Arithmetic operators
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Arithmetic operators
 

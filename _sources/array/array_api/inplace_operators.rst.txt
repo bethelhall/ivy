@@ -9,6 +9,7 @@ Inplace operators
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Inplace operators
 

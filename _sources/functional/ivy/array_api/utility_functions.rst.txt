@@ -9,6 +9,7 @@ Utility functions
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Utility functions
 

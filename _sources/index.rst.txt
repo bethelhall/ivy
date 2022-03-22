@@ -346,6 +346,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Array
 
@@ -364,6 +365,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Functional
 
@@ -372,6 +374,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Stateful
 
@@ -386,6 +389,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Docs
 

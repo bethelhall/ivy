@@ -9,6 +9,7 @@ Bitwise operators
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Bitwise operators
 
