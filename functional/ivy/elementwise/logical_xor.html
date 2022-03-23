@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>negative &mdash; Ivy 1.0 documentation</title>
+  <title>logical_xor &mdash; Ivy 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="not_equal" href="not_equal.html" />
-    <link rel="prev" title="sin" href="sin.html" /> 
+    <link rel="next" title="logical_or" href="logical_or.html" />
+    <link rel="prev" title="acos" href="acos.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -120,12 +120,12 @@
 <li class="toctree-l2"><a class="reference internal" href="cos.html">cos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical_not.html">logical_not</a></li>
 <li class="toctree-l2"><a class="reference internal" href="acos.html">acos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_xor.html">logical_xor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">logical_xor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical_or.html">logical_or</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical_and.html">logical_and</a></li>
 <li class="toctree-l2"><a class="reference internal" href="acosh.html">acosh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sin.html">sin</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">negative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="negative.html">negative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="not_equal.html">not_equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tanh.html">tanh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bitwise_or.html">bitwise_or</a></li>
@@ -236,13 +236,13 @@
         
           <li><a href="../elementwise.html">Elementwise</a> &raquo;</li>
         
-      <li>negative</li>
+      <li>logical_xor</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/functional/ivy/elementwise/negative.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/functional/ivy/elementwise/logical_xor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -255,18 +255,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="negative">
-<h1>negative<a class="headerlink" href="#negative" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="logical-xor">
+<h1>logical_xor<a class="headerlink" href="#logical-xor" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="ivy.functional.ivy.elementwise.negative">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">negative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/elementwise.html#negative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.elementwise.negative" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the numerical negative of each element</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> – Input array</p>
+<dt id="ivy.functional.ivy.elementwise.logical_xor">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">logical_xor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">x2</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/elementwise.html#logical_xor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.elementwise.logical_xor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the bitwise XOR of the underlying binary representation of each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.
+Parameters
+———-
+x1: array</p>
+<blockquote>
+<div><p>first input array. Should have an integer or boolean data type.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>x2: array</dt><dd><p>second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <span class="xref std std-ref">broadcasting</span>). Should have an integer or boolean data type.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array containing the evaluated result for each element in x</p>
+</dl>
+<dl class="simple">
+<dt>out: array</dt><dd><p>an array containing the element-wise results. The returned array must have a data type determined by <span class="xref std std-ref">type-promotion</span>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -286,10 +292,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="not_equal.html" class="btn btn-neutral float-right" title="not_equal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="logical_or.html" class="btn btn-neutral float-right" title="logical_or" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sin.html" class="btn btn-neutral float-left" title="sin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acos.html" class="btn btn-neutral float-left" title="acos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
