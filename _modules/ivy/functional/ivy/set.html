@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ivy.functional.ivy.sorting &mdash; Ivy 1.0 documentation</title>
+  <title>ivy.functional.ivy.set &mdash; Ivy 1.0 documentation</title>
   
 
   
@@ -182,7 +182,7 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
-      <li>ivy.functional.ivy.sorting</li>
+      <li>ivy.functional.ivy.set</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,79 +197,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for ivy.functional.ivy.sorting</h1><div class="highlight"><pre>
+  <h1>Source code for ivy.functional.ivy.set</h1><div class="highlight"><pre>
 <span></span><span class="c1"># global</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="c1"># local</span>
 <span class="kn">import</span> <span class="nn">ivy</span>
 <span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="kn">import</span> <span class="n">current_framework</span> <span class="k">as</span> <span class="n">_cur_framework</span>
 
-
 <span class="c1"># Array API Standard #</span>
 <span class="c1"># -------------------#</span>
 
-<div class="viewcode-block" id="argsort"><a class="viewcode-back" href="../../../../functional/ivy/sorting/argsort.html#ivy.functional.ivy.sorting.argsort">[docs]</a><span class="k">def</span> <span class="nf">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-            <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">stable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> \
+<div class="viewcode-block" id="unique_values"><a class="viewcode-back" href="../../../../functional/ivy/set/unique_values.html#ivy.functional.ivy.set.unique_values">[docs]</a><span class="k">def</span> <span class="nf">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span>\
         <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">   Returns the indices that sort an array ``x`` along a specified axis.</span>
-
-<span class="sd">   Parameters</span>
-<span class="sd">   ----------</span>
-<span class="sd">   x:</span>
-<span class="sd">       input array.</span>
-<span class="sd">   axis:</span>
-<span class="sd">       axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.</span>
-<span class="sd">   descending:</span>
-<span class="sd">       sort order. If ``True``, the returned indices sort ``x`` in descending order (by value). If ``False``, the returned indices sort ``x`` in ascending order (by value). Default: ``False``.</span>
-<span class="sd">   stable:</span>
-<span class="sd">       sort stability. If ``True``, the returned indices must maintain the relative order of ``x`` values which compare as equal. If ``False``, the returned indices may or may not maintain the relative order of ``x`` values which compare as equal (i.e., the relative order of ``x`` values which compare as equal is implementation-dependent). Default: ``True``.</span>
-
-<span class="sd">   Returns</span>
-<span class="sd">   -------</span>
-<span class="sd">   out:</span>
-<span class="sd">       an array of indices. The returned array must have the same shape as ``x``. The returned array must have the default array index data type.</span>
-<span class="sd">   &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">descending</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="sort"><a class="viewcode-back" href="../../../../functional/ivy/sorting/sort.html#ivy.functional.ivy.sorting.sort">[docs]</a><span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-         <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-         <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-         <span class="n">stable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a sorted copy of an array</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">    ___________</span>
-<span class="sd">        x:</span>
-<span class="sd">            input array</span>
-
-<span class="sd">        axis:</span>
-<span class="sd">            axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.</span>
-
-<span class="sd">        descending:</span>
-<span class="sd">            direction: The direction in which to sort the values</span>
-
-<span class="sd">        stable:</span>
-<span class="sd">            sort stability. If ``True``,</span>
-<span class="sd">            the returned indices must maintain the relative order of ``x`` values which compare as equal.</span>
-<span class="sd">            If ``False``, the returned indices may or may not maintain the relative order of ``x`` values which compare as equal (i.e., the relative order of ``x`` values which compare as equal is implementation-dependent). Default: ``True``.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    _______</span>
-<span class="sd">        An array with the same dtype and shape as `values`, with the elements</span>
-<span class="sd">            sorted along the given `axis`.</span>
+<span class="sd">    Returns the unique elements of an input array ``x``.</span>
+<span class="sd">    .. admonition:: Data-dependent output shape</span>
+<span class="sd">        :class: important</span>
+<span class="sd">        The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.</span>
+<span class="sd">    .. note::</span>
+<span class="sd">       Uniqueness should be determined based on value equality (i.e., ``x_i == x_j``). For input arrays having floating-point data types, value-based equality implies the following behavior.</span>
+<span class="sd">       -   As ``nan`` values compare as ``False``, ``nan`` values should be considered distinct.</span>
+<span class="sd">       -   As ``-0`` and ``+0`` compare as ``True``, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return ``-0`` if ``-0`` occurs before ``+0``).</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x: array</span>
+<span class="sd">        input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out: array</span>
+<span class="sd">        an array containing the set of unique elements in ``x``. The returned array must have the same data type as ``x``.</span>
+<span class="sd">        .. note::</span>
+<span class="sd">           The order of unique elements is not specified and may vary between implementations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">descending</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span></div>
-
-
-<span class="c1"># Extra #</span>
-<span class="c1"># ------#</span>
+    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
