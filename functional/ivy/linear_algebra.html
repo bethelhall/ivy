@@ -121,7 +121,6 @@
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/det.html">det</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/cholesky.html">cholesky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/eigvalsh.html">eigvalsh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linear_algebra/matrix_rank.html">matrix_rank</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/vector_to_skew_symmetric_matrix.html">vector_to_skew_symmetric_matrix</a></li>
 </ul>
 </li>
@@ -378,24 +377,6 @@ Default is False.</p></li>
 <dd class="field-even"><p>Matrix norm of the array at specified axes.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ivy.functional.ivy.linear_algebra.matrix_rank">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">matrix_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vector</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">rtol</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>float<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#matrix_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.matrix_rank" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).</p>
-<p>Parameters:
-x:
-(array) – input array having shape (…, M, N) and whose innermost two dimensions form MxN matrices. Should have a floating-point data type.</p>
-<p>rtol:
-(Optional[Union[float, array]]) – relative tolerance for small singular values.
-Singular values approximately less than or equal to rtol * largest_singular_value are set to zero.
-If a float, the value is equivalent to a zero-dimensional array having a floating-point data type determined by Type Promotion Rules (as applied to x) and must be broadcast against each matrix.
-If an array, must have a floating-point data type and must be compatible with shape(x)[:-2] .
-If None, the default value is max(M, N) * eps, where eps must be the machine epsilon associated with the floating-point data type determined by Type Promotion Rules (as applied to x). Default: None.</p>
-<p>Returns:
-out:
-(array) – an array containing the ranks.</p>
 </dd></dl>
 
 <dl class="py function">
