@@ -13,6 +13,7 @@ Linear algebra
    :maxdepth: -1
    :caption: Linear algebra
 
+   linear_algebra/pinv.rst
    linear_algebra/matrix_transpose.rst
    linear_algebra/vector_norm.rst
    linear_algebra/svd.rst
@@ -30,6 +31,6 @@ Linear algebra
    linear_algebra/det.rst
    linear_algebra/cholesky.rst
    linear_algebra/eigvalsh.rst
-   linear_algebra/vector_to_skew_symmetric_matrix.rst
    linear_algebra/matrix_rank.rst
+   linear_algebra/vector_to_skew_symmetric_matrix.rst
 
