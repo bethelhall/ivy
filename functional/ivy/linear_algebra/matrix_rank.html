@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>cholesky &mdash; Ivy 1.0 documentation</title>
+  <title>matrix_rank &mdash; Ivy 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="matrix_norm" href="matrix_norm.html" />
-    <link rel="prev" title="pinv" href="pinv.html" /> 
+    <link rel="next" title="Losses" href="../losses.html" />
+    <link rel="prev" title="vector_to_skew_symmetric_matrix" href="vector_to_skew_symmetric_matrix.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="diagonal.html">diagonal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inv.html">inv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pinv.html">pinv</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">cholesky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cholesky.html">cholesky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrix_norm.html">matrix_norm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qr.html">qr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matmul.html">matmul</a></li>
@@ -118,10 +118,10 @@
 <li class="toctree-l2"><a class="reference internal" href="svdvals.html">svdvals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trace.html">trace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="det.html">det</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">cholesky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cholesky.html">cholesky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eigvalsh.html">eigvalsh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vector_to_skew_symmetric_matrix.html">vector_to_skew_symmetric_matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix_rank.html">matrix_rank</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">matrix_rank</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a></li>
@@ -207,13 +207,13 @@
         
           <li><a href="../linear_algebra.html">Linear algebra</a> &raquo;</li>
         
-      <li>cholesky</li>
+      <li>matrix_rank</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/functional/ivy/linear_algebra/cholesky.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/functional/ivy/linear_algebra/matrix_rank.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -226,31 +226,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cholesky">
-<h1>cholesky<a class="headerlink" href="#cholesky" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matrix-rank">
+<h1>matrix_rank<a class="headerlink" href="#matrix-rank" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="ivy.functional.ivy.linear_algebra.cholesky">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">cholesky</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">upper</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/linear_algebra.html#cholesky"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.cholesky" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the cholesky decomposition of the x matrix.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array having shape (…, M, M) and whose innermost two dimensions form square symmetric
-positive-definite matrices. Should have a floating-point data type.</p></li>
-<li><p><strong>upper</strong> (<em>bool</em>) – If True, the result must be the upper-triangular Cholesky factor U. If False, the result
-must be the lower-triangular Cholesky factor L. Default: False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return out</dt>
-<dd class="field-even"><p>an array containing the Cholesky factors for each square matrix.
-If upper is False, the returned array must contain lower-triangular matrices; otherwise,</p>
-<blockquote>
-<div><p>the returned array must contain upper-triangular matrices. 
-The returned array must have a floating-point data type determined by Type Promotion Rules 
-and must have the same shape as x.</p>
-</div></blockquote>
-</dd>
-</dl>
+<dt id="ivy.functional.ivy.linear_algebra.matrix_rank">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">matrix_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vector</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/linear_algebra.html#matrix_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.matrix_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).</p>
+<p>Parameters:
+x:
+(array) – input array having shape (…, M, N) and whose innermost two dimensions form MxN matrices. Should have a floating-point data type.</p>
+<p>rtol:
+(Optional[Union[float, array]]) – relative tolerance for small singular values.
+Singular values approximately less than or equal to rtol * largest_singular_value are set to zero.
+If a float, the value is equivalent to a zero-dimensional array having a floating-point data type determined by Type Promotion Rules (as applied to x) and must be broadcast against each matrix.
+If an array, must have a floating-point data type and must be compatible with shape(x)[:-2] .
+If None, the default value is max(M, N) * eps, where eps must be the machine epsilon associated with the floating-point data type determined by Type Promotion Rules (as applied to x). Default: None.</p>
+<p>Returns:
+out:
+(array) – an array containing the ranks.</p>
 </dd></dl>
 
 <div class="line-block">
@@ -268,10 +261,10 @@ and must have the same shape as x.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="matrix_norm.html" class="btn btn-neutral float-right" title="matrix_norm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../losses.html" class="btn btn-neutral float-right" title="Losses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pinv.html" class="btn btn-neutral float-left" title="pinv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vector_to_skew_symmetric_matrix.html" class="btn btn-neutral float-left" title="vector_to_skew_symmetric_matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
