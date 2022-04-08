@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>divide &mdash; Ivy 1.0 documentation</title>
+  <title>vecdot &mdash; Ivy 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="remainder" href="remainder.html" />
-    <link rel="prev" title="subtract" href="subtract.html" /> 
+    <link rel="next" title="det" href="det.html" />
+    <link rel="prev" title="trace" href="trace.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,75 +97,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../creation.html">Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_type.html">Data type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../device.html">Device</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../elementwise.html">Elementwise</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bitwise_left_shift.html">bitwise_left_shift</a></li>
-<li class="toctree-l2"><a class="reference internal" href="add.html">add</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pow.html">pow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_xor.html">bitwise_xor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exp.html">exp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="expm1.html">expm1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_invert.html">bitwise_invert</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_and.html">bitwise_and</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ceil.html">ceil</a></li>
-<li class="toctree-l2"><a class="reference internal" href="floor.html">floor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isfinite.html">isfinite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asin.html">asin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isinf.html">isinf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="greater.html">greater</a></li>
-<li class="toctree-l2"><a class="reference internal" href="greater_equal.html">greater_equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="less_equal.html">less_equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multiply.html">multiply</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asinh.html">asinh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sign.html">sign</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sqrt.html">sqrt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cosh.html">cosh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="log.html">log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="log2.html">log2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="log10.html">log10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="log1p.html">log1p</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isnan.html">isnan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="less.html">less</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cos.html">cos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acos.html">acos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_not.html">logical_not</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_xor.html">logical_xor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_or.html">logical_or</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logical_and.html">logical_and</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acosh.html">acosh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sin.html">sin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="negative.html">negative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="not_equal.html">not_equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="floor_divide.html">floor_divide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_or.html">bitwise_or</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sinh.html">sinh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="positive.html">positive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="square.html">square</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logaddexp.html">logaddexp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="round.html">round</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trunc.html">trunc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="abs.html">abs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tan.html">tan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atan.html">atan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atan2.html">atan2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cosh.html">cosh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tanh.html">tanh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atanh.html">atanh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="subtract.html">subtract</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">divide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remainder.html">remainder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_right_shift.html">bitwise_right_shift</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bitwise_left_shift.html">bitwise_left_shift</a></li>
-<li class="toctree-l2"><a class="reference internal" href="equal.html">equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="erf.html">erf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="minimum.html">minimum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maximum.html">maximum</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../elementwise.html">Elementwise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gradients.html">Gradients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../image.html">Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear algebra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../linear_algebra.html">Linear algebra</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eigh.html">eigh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinv.html">pinv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix_transpose.html">matrix_transpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_norm.html">vector_norm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">svd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outer.html">outer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diagonal.html">diagonal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinv.html">pinv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cholesky.html">cholesky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix_norm.html">matrix_norm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qr.html">qr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matmul.html">matmul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slodget.html">slodget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensordot.html">tensordot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svdvals.html">svdvals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trace.html">trace</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vecdot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="det.html">det</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cholesky.html">cholesky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigvalsh.html">eigvalsh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inv.html">inv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix_rank.html">matrix_rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cross.html">cross</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_to_skew_symmetric_matrix.html">vector_to_skew_symmetric_matrix</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manipulation.html">Manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../meta.html">Meta</a></li>
@@ -247,15 +210,15 @@
         
           <li><a href="../../ivy.html">&lt;no title&gt;</a> &raquo;</li>
         
-          <li><a href="../elementwise.html">Elementwise</a> &raquo;</li>
+          <li><a href="../linear_algebra.html">Linear algebra</a> &raquo;</li>
         
-      <li>divide</li>
+      <li>vecdot</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/functional/ivy/elementwise/divide.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/functional/ivy/linear_algebra/vecdot.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -268,25 +231,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="divide">
-<h1>divide<a class="headerlink" href="#divide" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="vecdot">
+<h1>vecdot<a class="headerlink" href="#vecdot" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="ivy.functional.ivy.elementwise.divide">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">divide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">x2</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/elementwise.html#divide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.elementwise.divide" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the division for each element x1_i of the input array x1 with the respective element x2_i of the
-input array x2.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> – dividend input array. Should have a numeric data type.</p></li>
-<li><p><strong>x2</strong> – divisor input array. Must be compatible with x1 (see Broadcasting). Should have a numeric data type.</p></li>
-</ul>
+<dt id="ivy.functional.ivy.linear_algebra.vecdot">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">vecdot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">x2</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">axis</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">- 1</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/linear_algebra.html#vecdot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.vecdot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the (vector) dot product of two arrays.
+Parameters
+———-
+x1: array</p>
+<blockquote>
+<div><p>first input array. Should have a numeric data type.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>x2: array</dt><dd><p>second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <span class="xref std std-ref">broadcasting</span>). Should have a numeric data type.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array containing the element-wise results. The returned array must have a floating-point data type
-determined by Type Promotion Rules.</p>
+<dt>axis:int</dt><dd><p>axis over which to compute the dot product. Must be an integer on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of the shape determined according to <span class="xref std std-ref">broadcasting</span>. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
 </dd>
 </dl>
+<dl class="simple">
+<dt>out: array</dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank <code class="docutils literal notranslate"><span class="pre">N-1</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of the shape determined according to <span class="xref std std-ref">broadcasting</span>. The returned array must have a data type determined by <span class="xref std std-ref">type-promotion</span>.</p>
+</dd>
+</dl>
+<p><strong>Raises</strong>
+-   if provided an invalid <code class="docutils literal notranslate"><span class="pre">axis</span></code>.
+-   if the size of the axis over which to compute the dot product is not the same for both <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
 </dd></dl>
 
 <div class="line-block">
@@ -304,10 +273,10 @@ determined by Type Promotion Rules.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="remainder.html" class="btn btn-neutral float-right" title="remainder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="det.html" class="btn btn-neutral float-right" title="det" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="subtract.html" class="btn btn-neutral float-left" title="subtract" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trace.html" class="btn btn-neutral float-left" title="trace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
