@@ -250,7 +250,24 @@
     <span class="k">return</span> <span class="n">ret_cont</span></div>
 
 
-<div class="viewcode-block" id="is_array"><a class="viewcode-back" href="../../../../functional/ivy/general/is_array.html#ivy.functional.ivy.general.is_array">[docs]</a><span class="k">def</span> <span class="nf">is_array</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>\
+<div class="viewcode-block" id="is_native_array"><a class="viewcode-back" href="../../../../functional/ivy/general/is_native_array.html#ivy.functional.ivy.general.is_native_array">[docs]</a><span class="k">def</span> <span class="nf">is_native_array</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>\
+        <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determines whether the input x is a Native Array.</span>
+
+<span class="sd">    :param x: The input to check</span>
+<span class="sd">    :type x: any</span>
+<span class="sd">    :param exclusive: Whether to check if the data type is exclusively an array, rather than a variable or traced array.</span>
+<span class="sd">    :type exclusive: bool, optional</span>
+<span class="sd">    :return: Boolean, whether or not x is an array.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="is_ivy_array"><a class="viewcode-back" href="../../../../functional/ivy/general/is_ivy_array.html#ivy.functional.ivy.general.is_ivy_array">[docs]</a><span class="k">def</span> <span class="nf">is_ivy_array</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>\
         <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Determines whether the input x is an Ivy Array.</span>
@@ -261,10 +278,7 @@
 <span class="sd">    :type exclusive: bool, optional</span>
 <span class="sd">    :return: Boolean, whether or not x is an array.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span></div>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">)</span></div>
 
 
 <span class="c1"># noinspection PyShadowingNames</span>
@@ -322,7 +336,7 @@
 <span class="sd">    :type equality_matrix: bool, optional</span>
 <span class="sd">    :return: Boolean, whether or not the inputs are equal, or matrix array of booleans if equality_matrix=True is set.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">equality_fn</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array_equal</span> <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">else</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+    <span class="n">equality_fn</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array_equal</span> <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">else</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
     <span class="k">if</span> <span class="n">equality_matrix</span><span class="p">:</span>
         <span class="n">num_arrays</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
         <span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_arrays</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_arrays</span><span class="p">)]</span>
@@ -330,7 +344,7 @@
             <span class="k">for</span> <span class="n">j_</span><span class="p">,</span> <span class="n">xb</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">:]):</span>
                 <span class="n">j</span> <span class="o">=</span> <span class="n">j_</span> <span class="o">+</span> <span class="n">i</span>
                 <span class="n">res</span> <span class="o">=</span> <span class="n">equality_fn</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
                     <span class="c1"># noinspection PyTypeChecker</span>
                     <span class="n">res</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">to_scalar</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
                 <span class="c1"># noinspection PyTypeChecker</span>
@@ -393,7 +407,7 @@
 <span class="sd">    :type p: float, optional</span>
 <span class="sd">    :return: An array with the vector norm downscaled to the max norm if needed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">norm</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
     <span class="n">ratio</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">stable_divide</span><span class="p">(</span><span class="n">max_norm</span><span class="p">,</span> <span class="n">norm</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ratio</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">ratio</span> <span class="o">*</span> <span class="n">x</span>
@@ -482,7 +496,7 @@
             <span class="n">scales</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">max_freq</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">num_bands</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="n">dev</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>            
         <span class="k">else</span><span class="p">:</span>
             <span class="n">scales</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">max_freq</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">num_bands</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="n">dev</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">scales</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">scales</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">scales</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">scales</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="n">scales</span> <span class="o">=</span> <span class="n">scales</span><span class="p">[(</span><span class="o">*</span><span class="p">((</span><span class="kc">None</span><span class="p">,)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">scales</span><span class="o">.</span><span class="n">shape</span><span class="p">))),</span> <span class="bp">Ellipsis</span><span class="p">)]</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">scales</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
     <span class="n">sin_x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -492,7 +506,7 @@
         <span class="n">sin_x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sin_x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_bands</span><span class="o">*</span><span class="n">dim</span><span class="p">])</span>
         <span class="n">cos_x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cos_x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_bands</span><span class="o">*</span><span class="n">dim</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">concat</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">orig_x</span><span class="p">,</span> <span class="n">sin_x</span><span class="p">,</span> <span class="n">cos_x</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">orig_x</span><span class="p">,</span> <span class="n">sin_x</span><span class="p">,</span> <span class="n">cos_x</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sin_x</span><span class="p">,</span> <span class="n">cos_x</span></div>
 
 
@@ -508,7 +522,7 @@
 <span class="sd">    :type include_infs: bool, optional</span>
 <span class="sd">    :return Boolean as to whether the input value is a nan or not.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">x_scalar</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">to_scalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
+    <span class="n">x_scalar</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">to_scalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">x_scalar</span> <span class="o">==</span> <span class="n">x_scalar</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">if</span> <span class="n">include_infs</span> <span class="ow">and</span> <span class="n">x_scalar</span> <span class="o">==</span> <span class="n">INF</span> <span class="ow">or</span> <span class="n">x_scalar</span> <span class="o">==</span> <span class="o">-</span><span class="n">INF</span><span class="p">:</span>
@@ -804,7 +818,7 @@
     <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">gc</span><span class="o">.</span><span class="n">get_objects</span><span class="p">():</span>
         <span class="c1"># noinspection PyBroadException</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
                 <span class="n">all_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
@@ -899,7 +913,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_variable</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">inplace_variables_supported</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_native_array</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">inplace_arrays_supported</span><span class="p">()</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Input x must be either a variable or an array.&#39;</span><span class="p">)</span></div>
 
@@ -918,41 +932,42 @@
     <span class="k">return</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="inplace_update"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_update.html#ivy.functional.ivy.general.inplace_update">[docs]</a><span class="k">def</span> <span class="nf">inplace_update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="inplace_update"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_update.html#ivy.functional.ivy.general.inplace_update">[docs]</a><span class="k">def</span> <span class="nf">inplace_update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform in-place update for the input variable.</span>
+<span class="sd">    Perform in-place update for the input array. This will always be performed on ivy.Array instances pass in the input,</span>
+<span class="sd">    and will also be performed on the native array classes in the backend, when the backend supports this.</span>
 
 <span class="sd">    :param x: The variable to update.</span>
 <span class="sd">    :type x: variable</span>
 <span class="sd">    :param val: The array to update the variable with.</span>
 <span class="sd">    :type val: array</span>
-<span class="sd">    :return: The variable following the in-place update.</span>
+<span class="sd">    :return: The array following the in-place update.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">inplace_update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="inplace_decrement"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_decrement.html#ivy.functional.ivy.general.inplace_decrement">[docs]</a><span class="k">def</span> <span class="nf">inplace_decrement</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="inplace_decrement"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_decrement.html#ivy.functional.ivy.general.inplace_decrement">[docs]</a><span class="k">def</span> <span class="nf">inplace_decrement</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform in-place decrement for the input variable.</span>
+<span class="sd">    Perform in-place decrement for the input array.</span>
 
-<span class="sd">    :param x: The variable to decrement.</span>
-<span class="sd">    :type x: variable</span>
+<span class="sd">    :param x: The array to decrement.</span>
+<span class="sd">    :type x: array</span>
 <span class="sd">    :param val: The array to decrement the variable with.</span>
 <span class="sd">    :type val: array</span>
-<span class="sd">    :return: The variable following the in-place decrement.</span>
+<span class="sd">    :return: The array following the in-place decrement.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">inplace_decrement</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="inplace_increment"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_increment.html#ivy.functional.ivy.general.inplace_increment">[docs]</a><span class="k">def</span> <span class="nf">inplace_increment</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="inplace_increment"><a class="viewcode-back" href="../../../../functional/ivy/general/inplace_increment.html#ivy.functional.ivy.general.inplace_increment">[docs]</a><span class="k">def</span> <span class="nf">inplace_increment</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Perform in-place increment for the input variable.</span>
+<span class="sd">    Perform in-place increment for the input array.</span>
 
-<span class="sd">    :param x: The variable to increment.</span>
-<span class="sd">    :type x: variable</span>
+<span class="sd">    :param x: The array to increment.</span>
+<span class="sd">    :type x: array</span>
 <span class="sd">    :param val: The array to increment the variable with.</span>
 <span class="sd">    :type val: array</span>
-<span class="sd">    :return: The variable following the in-place increment.</span>
+<span class="sd">    :return: The array following the in-place increment.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">inplace_increment</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span></div>
 

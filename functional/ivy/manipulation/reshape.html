@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="concatenate" href="concatenate.html" />
+    <link rel="next" title="concat" href="concat.html" />
     <link rel="prev" title="stack" href="stack.html" /> 
 </head>
 
@@ -105,13 +105,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../manipulation.html">Manipulation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="roll.html">roll</a></li>
 <li class="toctree-l2"><a class="reference internal" href="squeeze.html">squeeze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flip.html">flip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="expand_dims.html">expand_dims</a></li>
 <li class="toctree-l2"><a class="reference internal" href="permute_dims.html">permute_dims</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stack.html">stack</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">reshape</a></li>
-<li class="toctree-l2"><a class="reference internal" href="concatenate.html">concatenate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concat.html">concat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="split.html">split</a></li>
 <li class="toctree-l2"><a class="reference internal" href="repeat.html">repeat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tile.html">tile</a></li>
@@ -225,7 +226,7 @@
 <h1>reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy.functional.ivy.manipulation.reshape">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">newshape</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>int<span class="p">, </span>Iterable<span class="p">[</span>int<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/manipulation.html#reshape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.manipulation.reshape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">reshape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">shape</span><span class="p">:</span> <span class="n">Tuple<span class="p">[</span>int<span class="p">, </span><span class="p">…</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">copy</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>bool<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../../_modules/ivy/functional/ivy/manipulation.html#reshape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.manipulation.reshape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gives a new shape to an array without changing its data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -256,7 +257,7 @@ In this case, the value is inferred from the length of the array and remaining d
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="concatenate.html" class="btn btn-neutral float-right" title="concatenate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="concat.html" class="btn btn-neutral float-right" title="concat" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="stack.html" class="btn btn-neutral float-left" title="stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

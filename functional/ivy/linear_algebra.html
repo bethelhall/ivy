@@ -110,7 +110,6 @@
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/svd.html">svd</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/outer.html">outer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/diagonal.html">diagonal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linear_algebra/inv.html">inv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/pinv.html">pinv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/cholesky.html">cholesky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/matrix_norm.html">matrix_norm</a></li>
@@ -123,6 +122,8 @@
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/det.html">det</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/cholesky.html">cholesky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/eigvalsh.html">eigvalsh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra/inv.html">inv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra/matrix_rank.html">matrix_rank</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/cross.html">cross</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_algebra/vector_to_skew_symmetric_matrix.html">vector_to_skew_symmetric_matrix</a></li>
 </ul>
@@ -284,25 +285,16 @@ by Type Promotion Rules.</p>
 <dt id="ivy.functional.ivy.linear_algebra.det">
 <code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">det</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">ivy.array.Array</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#det"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.det" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the determinant of a square matrix (or a stack of square matrices) x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – input array having shape (…, M, M) and whose innermost two dimensions form square matrices. Should
+have a floating-point data type.</p>
+</dd>
+</dl>
 <dl class="simple">
-<dt>x:</dt><dd><dl class="simple">
-<dt>input array having shape (…, M, M) and whose innermost two dimensions form square matrices. Should</dt><dd><p>have a floating-point data type.</p>
+<dt>:return<span class="classifier">if x is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero</span></dt><dd><p>dimensional array containing the determinant for each square matrix. The returned array must have the same data type as x.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p>out(array):</p>
-<blockquote>
-<div><dl class="simple">
-<dt>if x is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero</dt><dd><p>dimensional array containing the determinant for each square matrix. The returned array must have the same data type as x.</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>Examples:
-&gt;&gt;&gt; x = ivy.array([ [[1, 2], [3, 4]], [[1, 2], [2, 1]], [[1, 3], [3, 1]] ])
-&gt;&gt;&gt; out = ivy.det(x)
-&gt;&gt;&gt; print(out)
-[-2., -3., -8.]</p>
 </dd></dl>
 
 <dl class="py function">
@@ -382,17 +374,14 @@ have the same data type as x.</p>
 
 <dl class="py function">
 <dt id="ivy.functional.ivy.linear_algebra.inv">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#inv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.inv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the (multiplicative) inverse of x matrix.
-Given a square matrix x, returns the matrix x_inv satisfying dot(x, x_inv) = dot(x_inv, x) = eye(x.shape[0]).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – Matrix to be inverted.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>(Multiplicative) inverse of the matrix x.</p>
-</dd>
-</dl>
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#inv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the multiplicative inverse of a square matrix (or a stack of square matrices) x.</p>
+<p>Parameters
+x (array) : input array having shape (…, M, M) and whose innermost two dimensions form square matrices.
+Should have a floating-point data type.</p>
+<p>Returns
+out (array) : an array containing the multiplicative inverses.
+The returned array must have a floating-point data type determined by Type Promotion Rules and must have the same shape as x.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -426,7 +415,7 @@ if x1 is an array having shape (…, M, K), x2 is an array having shape (…, L,
 
 <dl class="py function">
 <dt id="ivy.functional.ivy.linear_algebra.matrix_norm">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">matrix_norm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">p</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">axes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keepdims</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#matrix_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.matrix_norm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">matrix_norm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">ord</span><span class="p">:</span> <span class="n">Optional[Union[int, float, Literal[inf, - inf, fro, nuc]]]</span> <span class="o">=</span> <span class="default_value">'fro'</span></em>, <em class="sig-param"><span class="n">keepdims</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#matrix_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.matrix_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the matrix p-norm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -444,6 +433,24 @@ Default is False.</p></li>
 <dd class="field-even"><p>Matrix norm of the array at specified axes.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy.functional.ivy.linear_algebra.matrix_rank">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">matrix_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vector</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">rtol</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Union<span class="p">[</span>float<span class="p">, </span>Tuple<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/linear_algebra.html#matrix_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.matrix_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).</p>
+<p>Parameters:
+x:
+(array) – input array having shape (…, M, N) and whose innermost two dimensions form MxN matrices. Should have a floating-point data type.</p>
+<p>rtol:
+(Optional[Union[float, array]]) – relative tolerance for small singular values.
+Singular values approximately less than or equal to rtol * largest_singular_value are set to zero.
+If a float, the value is equivalent to a zero-dimensional array having a floating-point data type determined by Type Promotion Rules (as applied to x) and must be broadcast against each matrix.
+If an array, must have a floating-point data type and must be compatible with shape(x)[:-2] .
+If None, the default value is max(M, N) * eps, where eps must be the machine epsilon associated with the floating-point data type determined by Type Promotion Rules (as applied to x). Default: None.</p>
+<p>Returns:
+out:
+(array) – an array containing the ranks.</p>
 </dd></dl>
 
 <dl class="py function">
