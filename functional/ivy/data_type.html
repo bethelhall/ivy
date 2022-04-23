@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="iinfo" href="data_type/iinfo.html" />
-    <link rel="prev" title="arange" href="creation/arange.html" /> 
+    <link rel="next" title="can_cast" href="data_type/can_cast.html" />
+    <link rel="prev" title="logspace" href="creation/logspace.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,6 +89,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Container</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../container/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/base.html">Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/container.html">Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/creation.html">Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/data_types.html">Data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/elementwise.html">Elementwise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/gradients.html">Gradients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/image.html">Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/linear_algebra.html">Linear algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/manipulation.html">Manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/set.html">Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/statistical.html">Statistical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/utility.html">Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../container/wrapping.html">Wrapping</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Functional</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="activations.html">Activations</a></li>
@@ -96,11 +121,13 @@
 <li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creation.html">Creation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_type/can_cast.html">can_cast</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/iinfo.html">iinfo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/finfo.html">finfo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/broadcast_to.html">broadcast_to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_type/broadcast_arrays.html">broadcast_arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/dtype.html">dtype</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_type/cast.html">cast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_type/astype.html">astype</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/dtype_bits.html">dtype_bits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/dtype_to_str.html">dtype_to_str</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_type/dtype_from_str.html">dtype_from_str</a></li>
@@ -269,19 +296,50 @@
 
 <dl class="py function">
 <dt id="ivy.functional.ivy.data_type.astype">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">astype</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">dtype</span><span class="p">:</span> <span class="n">ivy.Dtype</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="headerlink" href="#ivy.functional.ivy.data_type.astype" title="Permalink to this definition">¶</a></dt>
-<dd><p>Casts an array to a specified type.</p>
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">astype</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">dtype</span><span class="p">:</span> <span class="n">ivy.Dtype</span></em>, <em class="sig-param"><span class="n">copy</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; ivy.array.Array<a class="reference internal" href="../../_modules/ivy/functional/ivy/data_type.html#astype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.data_type.astype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies an array to a specified data type irrespective of <span class="xref std std-ref">type-promotion</span> rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Casting floating-point <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">infinity</span></code> values to integral data types is not specified and is implementation-dependent.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When casting a boolean input array to a numeric data type, a value of <code class="docutils literal notranslate"><span class="pre">True</span></code> must cast to a numeric value equal to <code class="docutils literal notranslate"><span class="pre">1</span></code>, and a value of <code class="docutils literal notranslate"><span class="pre">False</span></code> must cast to a numeric value equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+When casting a numeric input array to <code class="docutils literal notranslate"><span class="pre">bool</span></code>, a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> must cast to <code class="docutils literal notranslate"><span class="pre">False</span></code>, and a non-zero value must cast to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</div>
+<dl class="simple">
+<dt>x</dt><dd><p>array to cast.</p>
+</dd>
+<dt>dtype</dt><dd><p>desired data type.</p>
+</dd>
+<dt>copy</dt><dd><p>specifies whether to copy an array when the specified <code class="docutils literal notranslate"><span class="pre">dtype</span></code> matches the data type of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a newly allocated array must always be returned. If <code class="docutils literal notranslate"><span class="pre">False</span></code> and the specified <code class="docutils literal notranslate"><span class="pre">dtype</span></code> matches the data type of the input array, the input array must be returned; otherwise, a newly allocated must be returned. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>ret</dt><dd><p>an array having the specified data type. The returned array must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dtype</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">float64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">[1., 2.]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy.functional.ivy.data_type.broadcast_arrays">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">broadcast_arrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">arrays</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>ivy.array.Array<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/data_type.html#broadcast_arrays"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.data_type.broadcast_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Broadcasts one or more arrays against one another.</p>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – Input array containing elements to cast.</p></li>
-<li><p><strong>dtype</strong> (<em>data-type string</em>) – The desired data-type for the array in string format, i.e. ‘float32’ or ‘int64’.
-If not given, then the type will be determined as the minimum type required to hold the objects in the
-sequence.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>x</strong> – x (array) – an arbitrary number of to-be broadcasted arrays.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A new array of the same shape as input array a, with data type given by dtype.</p>
+<dd class="field-even"><p>out (List[array]) – Each array must have the same shape. Each array must have the same dtype as its corresponding input array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -306,20 +364,21 @@ sequence.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="ivy.functional.ivy.data_type.cast">
-<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">cast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">dtype</span><span class="p">:</span> <span class="n">ivy.Dtype</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/data_type.html#cast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.data_type.cast" title="Permalink to this definition">¶</a></dt>
-<dd><p>Casts an array to a specified type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – Input array containing elements to cast.</p></li>
-<li><p><strong>dtype</strong> (<em>data-type string</em>) – The desired data-type for the array in string format, i.e. ‘float32’ or ‘int64’.
-If not given, then the type will be determined as the minimum type required to hold the objects in the
-sequence.</p></li>
-</ul>
+<dt id="ivy.functional.ivy.data_type.can_cast">
+<code class="sig-prename descclassname">ivy.</code><code class="sig-name descname">can_cast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>ivy.Dtype<span class="p">, </span>ivy.array.Array<span class="p">, </span>ivy.NativeArray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">to</span><span class="p">:</span> <span class="n">ivy.Dtype</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/ivy/functional/ivy/data_type.html#can_cast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy.functional.ivy.data_type.can_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if one data type can be cast to another data type according <span class="xref std std-ref">type-promotion</span> rules.
+Parameters
+———-
+<a href="#id1"><span class="problematic" id="id2">from_</span></a>: Union[dtype, array]</p>
+<blockquote>
+<div><p>input data type or array from which to cast.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>to: dtype</dt><dd><p>desired data type.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A new array of the same shape as input array a, with data type given by dtype.</p>
+</dl>
+<dl class="simple">
+<dt>out: bool</dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the cast can occur according to <span class="xref std std-ref">type-promotion</span> rules; otherwise, <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -600,10 +659,10 @@ smallest representable number.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="data_type/iinfo.html" class="btn btn-neutral float-right" title="iinfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="data_type/can_cast.html" class="btn btn-neutral float-right" title="can_cast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="creation/arange.html" class="btn btn-neutral float-left" title="arange" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="creation/logspace.html" class="btn btn-neutral float-left" title="logspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
