@@ -87,31 +87,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Container</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/base.html">Base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/container.html">Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/creation.html">Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/data_types.html">Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/elementwise.html">Elementwise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/general.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/gradients.html">Gradients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/image.html">Image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/linear_algebra.html">Linear algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/losses.html">Losses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/manipulation.html">Manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/random.html">Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/set.html">Set</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/sorting.html">Sorting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/statistical.html">Statistical</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/utility.html">Utility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/wrapping.html">Wrapping</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Functional</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/activations.html">Activations</a></li>
@@ -446,6 +421,18 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">axis1</span><span class="o">=</span><span class="n">axis1</span><span class="p">,</span> <span class="n">axis2</span><span class="o">=</span><span class="n">axis2</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="inv"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/inv.html#ivy.functional.ivy.linear_algebra.inv">[docs]</a><span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the (multiplicative) inverse of x matrix.</span>
+<span class="sd">    Given a square matrix x, returns the matrix x_inv satisfying dot(x, x_inv) = dot(x_inv, x) = eye(x.shape[0]).</span>
+
+<span class="sd">    :param x: Matrix to be inverted.</span>
+<span class="sd">    :type x: array</span>
+<span class="sd">    :return: (Multiplicative) inverse of the matrix x.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="pinv"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/pinv.html#ivy.functional.ivy.linear_algebra.pinv">[docs]</a><span class="k">def</span> <span class="nf">pinv</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the pseudo inverse of x matrix.</span>
@@ -468,10 +455,7 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="matrix_norm"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/matrix_norm.html#ivy.functional.ivy.linear_algebra.matrix_norm">[docs]</a><span class="k">def</span> <span class="nf">matrix_norm</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-                <span class="nb">ord</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Literal</span><span class="p">[</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span> <span class="n">inf</span><span class="p">,</span> <span class="s1">&#39;fro&#39;</span><span class="p">,</span> <span class="s1">&#39;nuc&#39;</span><span class="p">]]]</span> <span class="o">=</span> <span class="s1">&#39;fro&#39;</span><span class="p">,</span>
-                <span class="n">keepdims</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>\
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
+<div class="viewcode-block" id="matrix_norm"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/matrix_norm.html#ivy.functional.ivy.linear_algebra.matrix_norm">[docs]</a><span class="k">def</span> <span class="nf">matrix_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the matrix p-norm.</span>
 
@@ -488,7 +472,7 @@
 <span class="sd">    :type keepdims: bool, optional</span>
 <span class="sd">    :return: Matrix norm of the array at specified axes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">matrix_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">matrix_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="qr"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/qr.html#ivy.functional.ivy.linear_algebra.qr">[docs]</a><span class="k">def</span> <span class="nf">qr</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span>
@@ -639,41 +623,29 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="vecdot"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/vecdot.html#ivy.functional.ivy.linear_algebra.vecdot">[docs]</a><span class="k">def</span> <span class="nf">vecdot</span><span class="p">(</span><span class="n">x1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-           <span class="n">x2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-           <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>\
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
+<div class="viewcode-block" id="det"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/det.html#ivy.functional.ivy.linear_algebra.det">[docs]</a><span class="k">def</span> <span class="nf">det</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the (vector) dot product of two arrays.</span>
+<span class="sd">    Returns the determinant of a square matrix (or a stack of square matrices) ``x``.</span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x1: array</span>
-<span class="sd">        first input array. Should have a numeric data type.</span>
-<span class="sd">    x2: array</span>
-<span class="sd">        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.</span>
-<span class="sd">    axis:int</span>
-<span class="sd">        axis over which to compute the dot product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: ``-1``.</span>
+<span class="sd">    x</span>
+<span class="sd">        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices.</span>
+<span class="sd">        Should have a floating-point data type.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    out: array</span>
-<span class="sd">        if ``x1`` and ``x2`` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank ``N-1``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. The returned array must have a data type determined by :ref:`type-promotion`.</span>
-<span class="sd">    **Raises**</span>
-<span class="sd">    -   if provided an invalid ``axis``.</span>
-<span class="sd">    -   if the size of the axis over which to compute the dot product is not the same for both ``x1`` and ``x2``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    ret</span>
+<span class="sd">        if ``x`` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero</span>
+<span class="sd">        dimensional array containing the determinant for each square matrix. The returned array must have the same data type as ``x``.</span>
 
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">.</span><span class="n">vecdot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span></div>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; x = ivy.array([ [[1, 2], [3, 4]], [[1, 2], [2, 1]] ])</span>
+<span class="sd">    &gt;&gt;&gt; out = ivy.det(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(out)</span>
+<span class="sd">    [-2., -3.]</span>
 
-
-<div class="viewcode-block" id="det"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/det.html#ivy.functional.ivy.linear_algebra.det">[docs]</a><span class="k">def</span> <span class="nf">det</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">)</span> \
-    <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the determinant of a square matrix (or a stack of square matrices) x.</span>
-
-<span class="sd">    :param x:  input array having shape (..., M, M) and whose innermost two dimensions form square matrices. Should</span>
-<span class="sd">               have a floating-point data type.</span>
-<span class="sd">    :return :  if x is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero</span>
-<span class="sd">               dimensional array containing the determinant for each square matrix. The returned array must have the same data type as x.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
@@ -698,7 +670,6 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span>  <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span></div>
 
-
 <div class="viewcode-block" id="eigvalsh"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/eigvalsh.html#ivy.functional.ivy.linear_algebra.eigvalsh">[docs]</a><span class="k">def</span> <span class="nf">eigvalsh</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) x.</span>
@@ -709,47 +680,6 @@
 <span class="sd">             have the same data type as x.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">eigvalsh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="inv"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/inv.html#ivy.functional.ivy.linear_algebra.inv">[docs]</a><span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span>\
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the multiplicative inverse of a square matrix (or a stack of square matrices) x.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    x (array) : input array having shape (..., M, M) and whose innermost two dimensions form square matrices.</span>
-<span class="sd">    Should have a floating-point data type.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    out (array) : an array containing the multiplicative inverses.</span>
-<span class="sd">    The returned array must have a floating-point data type determined by Type Promotion Rules and must have the same shape as x.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="matrix_rank"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/matrix_rank.html#ivy.functional.ivy.linear_algebra.matrix_rank">[docs]</a><span class="k">def</span> <span class="nf">matrix_rank</span><span class="p">(</span><span class="n">vector</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-                <span class="n">rtol</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
-        <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">    x:</span>
-<span class="sd">    (array) – input array having shape (..., M, N) and whose innermost two dimensions form MxN matrices. Should have a floating-point data type.</span>
-
-<span class="sd">    rtol:</span>
-<span class="sd">    (Optional[Union[float, array]]) – relative tolerance for small singular values.</span>
-<span class="sd">    Singular values approximately less than or equal to rtol * largest_singular_value are set to zero.</span>
-<span class="sd">    If a float, the value is equivalent to a zero-dimensional array having a floating-point data type determined by Type Promotion Rules (as applied to x) and must be broadcast against each matrix.</span>
-<span class="sd">    If an array, must have a floating-point data type and must be compatible with shape(x)[:-2] .</span>
-<span class="sd">    If None, the default value is max(M, N) * eps, where eps must be the machine epsilon associated with the floating-point data type determined by Type Promotion Rules (as applied to x). Default: None.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    out:</span>
-<span class="sd">    (array) – an array containing the ranks.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">rtol</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="cross"><a class="viewcode-back" href="../../../../functional/ivy/linear_algebra/cross.html#ivy.functional.ivy.linear_algebra.cross">[docs]</a><span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">x1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -774,7 +704,6 @@
 <span class="sd">    :type out: array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">axis</span><span class="p">)</span></div>
-
 
 <span class="c1"># Extra #</span>
 <span class="c1"># ------#</span>

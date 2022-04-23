@@ -87,31 +87,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Container</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/base.html">Base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/container.html">Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/creation.html">Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/data_types.html">Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/elementwise.html">Elementwise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/general.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/gradients.html">Gradients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/image.html">Image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/linear_algebra.html">Linear algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/losses.html">Losses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/manipulation.html">Manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/random.html">Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/set.html">Set</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/sorting.html">Sorting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/statistical.html">Statistical</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/utility.html">Utility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../container/wrapping.html">Wrapping</a></li>
-</ul>
 <p class="caption"><span class="caption-text">Functional</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/activations.html">Activations</a></li>
@@ -246,7 +221,7 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="o">.</span><span class="n">unique_inverse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="unique_values"><a class="viewcode-back" href="../../../../functional/ivy/set/unique_values.html#ivy.functional.ivy.set.unique_values">[docs]</a><span class="k">def</span> <span class="nf">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span> <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
+<div class="viewcode-block" id="unique_values"><a class="viewcode-back" href="../../../../functional/ivy/set/unique_values.html#ivy.functional.ivy.set.unique_values">[docs]</a><span class="k">def</span> <span class="nf">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span>\
         <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the unique elements of an input array ``x``.</span>
@@ -268,20 +243,7 @@
 <span class="sd">        .. note::</span>
 <span class="sd">           The order of unique elements is not specified and may vary between implementations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="unique_counts"><a class="viewcode-back" href="../../../../functional/ivy/set/unique_counts.html#ivy.functional.ivy.set.unique_counts">[docs]</a><span class="k">def</span> <span class="nf">unique_counts</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span>\
-        <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the unique elements of an input array x and the corresponding counts for each unique element in x.</span>
-
-<span class="sd">    :param x: input array. If x has more than one dimension, the function must flatten x and return the unique elements of the flattened array.</span>
-<span class="sd">    :return: a namedtuple (values, counts) whose</span>
-<span class="sd">            -first element must have the field name values and must be an array containing the unique elements of x. The array must have the same data type as x.</span>
-<span class="sd">            -second element must have the field name counts and must be an array containing the number of times each unique element occurs in x. The returned array must have same shape as values and must have the default array index data type.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">unique_counts</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">unique_values</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

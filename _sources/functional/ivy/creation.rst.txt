@@ -13,7 +13,6 @@ Creation
    :maxdepth: -1
    :caption: Creation
 
-   creation/arange.rst
    creation/asarray.rst
    creation/zeros.rst
    creation/ones.rst
@@ -26,9 +25,11 @@ Creation
    creation/empty_like.rst
    creation/eye.rst
    creation/linspace.rst
-   creation/meshgrid.rst
    creation/zeros_like.rst
    creation/full.rst
-   creation/from_dlpack.rst
+   creation/ones.rst
+   creation/meshgrid.rst
+   creation/array.rst
    creation/logspace.rst
+   creation/arange.rst
 
